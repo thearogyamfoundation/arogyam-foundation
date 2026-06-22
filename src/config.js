@@ -1,7 +1,8 @@
-// Configuration file - edit these values to change model and API key
+// Configuration file - uses environment variables for security
+// Set VITE_OPENROUTER_API_KEY in your .env file or Vercel environment variables
 
-// Your API key from OpenRouter (https://openrouter.ai/settings)
-export const API_KEY = 'YOUR_API_KEY_HERE';
+// API key from environment variable (Vite requires VITE_ prefix)
+export const API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY || '';
 
 // Model to use - see available models at https://openrouter.ai/models
-export const MODEL = 'openai/gpt-oss-20b:free';
+export const MODEL = import.meta.env.VITE_OPENROUTER_MODEL || 'openai/gpt-oss-20b:free';

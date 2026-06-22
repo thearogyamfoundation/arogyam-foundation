@@ -5,6 +5,10 @@ import { API_KEY, MODEL } from './config.js';
  * Simple chat using OpenRouter API directly
  */
 export async function chat(message) {
+  if (!API_KEY) {
+    throw new Error('API key not configured. Set VITE_OPENROUTER_API_KEY in environment variables.');
+  }
+
   console.log('[Agent] Calling model:', MODEL);
 
   const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
